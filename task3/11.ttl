@@ -1,0 +1,494 @@
+@prefix : <http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/> .
+
+<http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/rdfs:label
+:rdfs:label rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#SymmetricProperty
+owl:SymmetricProperty rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/аллергияНаВещество
+:аллергияНаВещество rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Пациент ;
+                    rdfs:range :ДействующееВещество .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/взаимодействуетС
+:взаимодействуетС rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Препарат ;
+                  rdfs:range :Препарат ;
+                  owl:SymmetricProperty "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/воздействуетНаСистему
+:воздействуетНаСистему rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Препарат ;
+                       rdfs:range :СистемаОрганов .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/имеетДиагноз
+:имеетДиагноз rdf:type owl:ObjectProperty ;
+              rdfs:domain :Пациент ;
+              rdfs:range :Диагноз .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/имеетПутьВведения
+:имеетПутьВведения rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Препарат ;
+                   rdfs:range :ПутьВведения .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/имеетСостояние
+:имеетСостояние rdf:type owl:ObjectProperty ;
+                rdfs:domain :Пациент ;
+                rdfs:range :СостояниеПациента .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/имеетТипВзаимодействия
+:имеетТипВзаимодействия rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ВзаимодействиеПрепаратов ;
+                        rdfs:range :ТипВзаимодействия .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/имеетТяжесть
+:имеетТяжесть rdf:type owl:ObjectProperty ;
+              rdfs:domain :СостояниеПациента ;
+              rdfs:range :ТяжестьСостояния .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/назначенПрепарат
+:назначенПрепарат rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Пациент ;
+                  rdfs:range :Препарат .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/противопоказанПри
+:противопоказанПри rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Препарат ;
+                   rdfs:range :Диагноз .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/противопоказанПриСостоянии
+:противопоказанПриСостоянии rdf:type owl:ObjectProperty ;
+                            rdfs:domain :Препарат ;
+                            rdfs:range :СостояниеПациента .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/содержитВещество
+:содержитВещество rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Препарат ;
+                  rdfs:range :ДействующееВещество .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/требуетМониторинга
+:требуетМониторинга rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Препарат ;
+                    rdfs:range :МониторингТребование .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/участвуетПрепарат
+:участвуетПрепарат rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ВзаимодействиеПрепаратов ;
+                   rdfs:range :Препарат .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/уровеньТяжестиЧисло
+:уровеньТяжестиЧисло rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/АллергическаяНесовместимость
+:АллергическаяНесовместимость rdf:type owl:Class ;
+                              rdfs:subClassOf :РезультатВывода .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Аллергия
+:Аллергия rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/БактериальнаяИнфекция
+:БактериальнаяИнфекция rdf:type owl:Class ;
+                       rdfs:subClassOf :Диагноз .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ВзаимодействиеПрепаратов
+:ВзаимодействиеПрепаратов rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ДействующееВещество
+:ДействующееВещество rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Диагноз
+:Диагноз rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ЖелудочноКишечныйТракт
+:ЖелудочноКишечныйТракт rdf:type owl:Class ;
+                        rdfs:subClassOf :СистемаОрганов .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/КонфликтПрепаратов
+:КонфликтПрепаратов rdf:type owl:Class ;
+                    rdfs:subClassOf :РезультатВывода .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ЛегкаяТяжесть
+:ЛегкаяТяжесть rdf:type owl:Class ;
+               rdfs:subClassOf :ТяжестьСостояния .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/МониторингГлюкозы
+:МониторингГлюкозы rdf:type owl:Class ;
+                   rdfs:subClassOf :МониторингТребование .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/МониторингПеченочнойФункции
+:МониторингПеченочнойФункции rdf:type owl:Class ;
+                             rdfs:subClassOf :МониторингТребование .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/МониторингПочечнойФункции
+:МониторингПочечнойФункции rdf:type owl:Class ;
+                           rdfs:subClassOf :МониторингТребование .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/МониторингТребование
+:МониторингТребование rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/НекорректноеНазначение
+:НекорректноеНазначение rdf:type owl:Class ;
+                        rdfs:subClassOf :РезультатВывода .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Пациент
+:Пациент rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ПочечноеЗаболевание
+:ПочечноеЗаболевание rdf:type owl:Class ;
+                     rdfs:subClassOf :Диагноз .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Почки
+:Почки rdf:type owl:Class ;
+       rdfs:subClassOf :СистемаОрганов .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Препарат
+:Препарат rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ПутьВведения
+:ПутьВведения rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/РезультатВывода
+:РезультатВывода rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/СахарныйДиабет
+:СахарныйДиабет rdf:type owl:Class ;
+                rdfs:subClassOf :ЭндокринноеЗаболевание .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/СердечноСосудистаяСистема
+:СердечноСосудистаяСистема rdf:type owl:Class ;
+                           rdfs:subClassOf :СистемаОрганов .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/СердечноСосудистоеЗаболевание
+:СердечноСосудистоеЗаболевание rdf:type owl:Class ;
+                               rdfs:subClassOf :Диагноз .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/СистемаОрганов
+:СистемаОрганов rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/СостояниеПациента
+:СостояниеПациента rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ТипВзаимодействия
+:ТипВзаимодействия rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ТребуетсяМониторинг
+:ТребуетсяМониторинг rdf:type owl:Class ;
+                     rdfs:subClassOf :РезультатВывода .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ТяжестьСостояния
+:ТяжестьСостояния rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ТяжёлаяТяжесть
+:ТяжёлаяТяжесть rdf:type owl:Class ;
+                rdfs:subClassOf :ТяжестьСостояния .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/УмереннаяТяжесть
+:УмереннаяТяжесть rdf:type owl:Class ;
+                  rdfs:subClassOf :ТяжестьСостояния .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/УсилениеТоксичности
+:УсилениеТоксичности rdf:type owl:Class ;
+                     rdfs:subClassOf :ТипВзаимодействия .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Фармакодинамическое
+:Фармакодинамическое rdf:type owl:Class ;
+                     rdfs:subClassOf :ТипВзаимодействия .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Фармакокинетическое
+:Фармакокинетическое rdf:type owl:Class ;
+                     rdfs:subClassOf :ТипВзаимодействия .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ХроническаяБолезньПочек
+:ХроническаяБолезньПочек rdf:type owl:Class ;
+                         rdfs:subClassOf :ПочечноеЗаболевание .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ЭндокринноеЗаболевание
+:ЭндокринноеЗаболевание rdf:type owl:Class ;
+                        rdfs:subClassOf :Диагноз .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ЯзвеннаяБолезнь
+:ЯзвеннаяБолезнь rdf:type owl:Class ;
+                 rdfs:subClassOf :Диагноз .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines#Измайлова_В.
+<http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines#Измайлова_В.> rdf:type owl:NamedIndividual ,
+                                                                                                              :Пациент ;
+                                                                                                     :аллергияНаВещество :амоксициллин_вещство ;
+                                                                                                     :назначенПрепарат :Амоксициллин_препарат .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Азитромицин_препарат
+:Азитромицин_препарат rdf:type owl:NamedIndividual ,
+                               :Препарат ;
+                      :имеетПутьВведения :Перорально ;
+                      :содержитВещество :азитромицин_вещство ;
+                      rdfs:label "Азитромицин (препарат)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Аллергия_на_пенициллин
+:Аллергия_на_пенициллин rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Амоксициллин_препарат
+:Амоксициллин_препарат rdf:type owl:NamedIndividual ,
+                                :Препарат ;
+                       :имеетПутьВведения :Перорально ;
+                       :противопоказанПри :Аллергия_на_пенициллин ;
+                       :содержитВещество :амоксициллин_вещство ;
+                       rdfs:label "Амоксициллин (препарат)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/БакИнфекция
+:БакИнфекция rdf:type owl:NamedIndividual ,
+                      :Диагноз ;
+             rdfs:label "бактериальная инфекция" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Бронхит
+:Бронхит rdf:type owl:NamedIndividual ,
+                  :Диагноз ;
+         rdfs:label "бронхит" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Взаим_Ибупрофен_Амоксициллин
+:Взаим_Ибупрофен_Амоксициллин rdf:type owl:NamedIndividual ,
+                                       :ВзаимодействиеПрепаратов ;
+                              :имеетТипВзаимодействия :Фармакодинамическое ;
+                              :участвуетПрепарат :Амоксициллин_препарат ,
+                                                 :Ибупрофен_препарат ;
+                              rdfs:label "Взаим Ибупрофен–Амоксициллин (фармакодинамическое)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Внутривенно
+:Внутривенно rdf:type owl:NamedIndividual ,
+                      :ПутьВведения ;
+             rdfs:label "в/в" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ЖелудочноКишечныйТракт
+:ЖелудочноКишечныйТракт rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Ибупрофен_препарат
+:Ибупрофен_препарат rdf:type owl:NamedIndividual ,
+                             :Препарат ;
+                    :воздействуетНаСистему :ЖелудочноКишечныйТракт ;
+                    :имеетПутьВведения :Перорально ;
+                    :противопоказанПри :ЯзвеннаяБолезнь ;
+                    :содержитВещество :ибупрофен_вещство ;
+                    rdfs:label "Ибупрофен (препарат)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Местно
+:Местно rdf:type owl:NamedIndividual ,
+                 :ПутьВведения ;
+        rdfs:label "местно" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/МониторингПлатформа
+:МониторингПлатформа rdf:type owl:NamedIndividual ,
+                              :МониторингТребование .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Парацетамол_препарат
+:Парацетамол_препарат rdf:type owl:NamedIndividual ,
+                               :Препарат ;
+                      :имеетПутьВведения :Перорально ;
+                      :противопоказанПриСостоянии :Сост_ХБП_Тяжёлая ;
+                      :содержитВещество :парацетамол_вещство ;
+                      rdfs:label "Парацетамол (таблетки)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Пациент_Иванов
+:Пациент_Иванов rdf:type owl:NamedIndividual ,
+                         :Пациент ;
+                :имеетСостояние :СостИванов_Бронхит_Умеренный ;
+                :назначенПрепарат :Амоксициллин_препарат ;
+                rdfs:label "Иванов П." .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Пациент_Петрова
+:Пациент_Петрова rdf:type owl:NamedIndividual ,
+                          :Пациент ;
+                 :имеетСостояние :СостПетров_ХБП_Тяжёлая ;
+                 :назначенПрепарат :Парацетамол_препарат ;
+                 rdfs:label "Петрова А." .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Пациент_Сидоров
+:Пациент_Сидоров rdf:type owl:NamedIndividual ,
+                          :Пациент ;
+                 :аллергияНаВещество :амоксициллин_вещство ;
+                 rdfs:label "Сидоров В." .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Перорально
+:Перорально rdf:type owl:NamedIndividual ,
+                     :ПутьВведения ;
+            rdfs:label "перорально" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Сост_ХБП_Тяжёлая
+:Сост_ХБП_Тяжёлая rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/СостИванов_Бронхит_Умеренный
+:СостИванов_Бронхит_Умеренный rdf:type owl:NamedIndividual ,
+                                       :СостояниеПациента ;
+                              :имеетТяжесть :УмереннаяТяжесть ;
+                              :rdfs:label "Состояние Иванов (бронхит, умеренная тяжесть)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/СостПетров_ХБП_Тяжёлая
+:СостПетров_ХБП_Тяжёлая rdf:type owl:NamedIndividual ,
+                                 :СостояниеПациента ;
+                        :имеетТяжесть :ТяжёлаяТяжесть ;
+                        :rdfs:label "Состояние Петров (ХБП, тяжёлая тяжесть)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ТяжёлаяТяжесть
+:ТяжёлаяТяжесть rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/УмереннаяТяжесть
+:УмереннаяТяжесть rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Фармакодинамическое
+:Фармакодинамическое rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/Цетиризин_препарат
+:Цетиризин_препарат rdf:type owl:NamedIndividual ,
+                             :Препарат ;
+                    :имеетПутьВведения :Перорально ;
+                    :содержитВещество :цетиризин_вещство ;
+                    rdfs:label "Цетиризин (препарат)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ЯзвеннаяБолезнь
+:ЯзвеннаяБолезнь rdf:type owl:NamedIndividual ,
+                          :Диагноз .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/азитромицин_вещство
+:азитромицин_вещство rdf:type owl:NamedIndividual ,
+                              :ДействующееВещество ;
+                     rdfs:label "азитромицин (вещество)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/амоксициллин_вещство
+:амоксициллин_вещство rdf:type owl:NamedIndividual ,
+                               :ДействующееВещество ;
+                      rdfs:label "амоксициллин (вещество)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/ибупрофен_вещство
+:ибупрофен_вещство rdf:type owl:NamedIndividual ,
+                            :ДействующееВещество ;
+                   rdfs:label "ибупрофен (вещество)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/парацетамол_вещство
+:парацетамол_вещство rdf:type owl:NamedIndividual ,
+                              :ДействующееВещество ;
+                     rdfs:label "парацетамол (вещество)" .
+
+
+###  http://www.semanticweb.org/ariana/ontologies/2025/10/system-recommendations-medicines/цетиризин_вещство
+:цетиризин_вещство rdf:type owl:NamedIndividual ,
+                            :ДействующееВещество ;
+                   rdfs:label "цетиризин (вещество)" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:ЯзвеннаяБолезнь rdfs:label "язвенная болезнь" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
